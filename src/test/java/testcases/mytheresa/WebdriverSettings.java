@@ -1,13 +1,17 @@
 package testcases.mytheresa;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class WebdriverSettings {
-	
+	WebDriver driver;
 	public WebDriver driverSettings() {
-		System.setProperty("webdriver.chrome.driver", "C:\\chromedriver.exe File PATH");
-		WebDriver driver = new ChromeDriver();
+
+
+		WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+
 		return driver;
 	}
 

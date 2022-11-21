@@ -11,16 +11,17 @@ import objectRepository.mytheresa.MytheresaMyAccountPage;
 import objectRepository.mytheresa.MytheresaNewArraivalThisWeekPage;
 import objectRepository.mytheresa.MytheresaWishListPage;
 
+import java.lang.reflect.Method;
+
+import static utilities.extentreport.ExtentTestManager.startTest;
 import static variables.mytheresa.UserVariables.*;
 
-public class WishListCheckAdd {
+public class WishListCheckAdd extends Base {
 
 	@Test
-	public void WishList() {
+	public void WishList(Method method) {
 
-		BrowserSetting bs = new BrowserSetting();
-
-		WebDriver driver = bs.BrowserSettings();
+		startTest(method.getName(),method.getAnnotation(Test.class).description());
 
 		logIn(driver);
 
@@ -28,7 +29,6 @@ public class WishListCheckAdd {
 
 		louOut(driver, mwlp);
 
-		driver.close();
 
 	}
 

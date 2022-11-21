@@ -31,6 +31,7 @@ public class MytheresaHomePage {
 	}
 
 	public WebElement myAccountLinkPath() {
+		System.out.println(myaccount_link);
 		return myaccount_link;
 	}
 

@@ -6,33 +6,29 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.annotations.Test;
-
+import java.lang.reflect.Method;
 import objectRepository.mytheresa.MytheresaAccountInformationPage;
 import objectRepository.mytheresa.MytheresaCreateAccountPage;
 import objectRepository.mytheresa.MytheresaHomePage;
 import objectRepository.mytheresa.MytheresaMyAccountPage;
 
+import static utilities.extentreport.ExtentTestManager.startTest;
 import static variables.mytheresa.UserVariables.*;
 
-public class NewUserJourney {
+public class NewUserJourney extends Base {
 
 	@Test
-	public void accountCreate() {
+	public void accountCreate(Method method) {
 
-		BrowserSetting bs = new BrowserSetting();
-
-		WebDriver driver = bs.BrowserSettings();
+		startTest(method.getName(),method.getAnnotation(Test.class).description());
 
 		createAccount(driver);
-
 		// password change
 		// my account page access
 		MytheresaMyAccountPage map = new MytheresaMyAccountPage(driver);
 		changePassword(driver, map);
-
 		logOut(driver, map);
 
-		driver.close();
 
 	}
 
